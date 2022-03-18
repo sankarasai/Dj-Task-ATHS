@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Static/Css/bootstrap-main/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Static/Css/styles.css?{% now " U " %}">
+    <title>Home Page</title>
+</head>
+
+<body style="background-color: #e3e3e3 !important;">
+    <div class="container-fluid mb-3 py-2 d-flex justify-content-end header align-items-center">
+        <b class="px-4  fs-5 border-end border-light">{% if user.is_authenticated %}welcome  : &nbsp;
+            <span class="text-warning">{{user.username}}</span>{% endif %} </b>
+        <form method="post">{% csrf_token %}
+            <!-- <input type="search" id="" placeholder="Search for Student" name="name" class="px-4 py-1  mx-2  text-center"> -->
+            <!-- <button type="submit" name="logout" class="btn btn-success px-2 py-1 mx-2  mt-0 "><i class="bi bi-search "></i> Search</button> -->
+            <button type="submit" value="logout" name="logout" class="btn btn-danger ms-2 py-1"> Logout <i
+                    class="bi bi-box-arrow-right"></i></button>
+        </form>
+    </div>
+    <!-- {% for ticket in tickets %} {{ticket.ticket_name}} {{ticket.ticket_description}} {{ticket.created}} {{ticket.modified}}{{ticket.status}}{% endfor %} -->
+
+    <div class="col-md-12 d-flex  mt-5">
+        <div class="col-md-5 mx-4 p-3 py-1 grey shadow">
+            <h3 class="text-center pb-2">Register your ticket here</h3>
+            <form action="" method="post">{% csrf_token %}
+                <label for="ticket-name">Ticket-Name</label>
+                <p>{{form.ticket_name}}</p>
+                <label for="ticket-name">Ticket-Description</label>
+                <p>{{form.ticket_description}}</p>
+                <!-- <p class="d-none">{{form.created_by}}</p> -->
+
+                <div class="d-flex justify-content-center">
+                    <input type="submit" value="Submit" name="form" class="btn btn-success flex-right">
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-6  bg-light shadow-lg">
+            <h2 class="text-center  pt-2">Your tickets history</h2>
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+
+                        <th scope="col">Ticket Name</th>
+                        <th scope="col">Ticket Description</th>
+                        <th scope="col">Modified time</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ticket in tickets %}
+                    <tr>
+                        <td><a href="/update/{{ticket.id}}">{{ticket.ticket_name}}</a></td>
+                        <!-- <td>{{ticket.ticket_name}}</td> -->
+                        <td>{{ticket.ticket_description}}</td>
+                        <td>{{ticket.modified|date:"d/M/y H:m"}}</td>
+                        <td>{{ticket.status}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</body>
+
+</html>

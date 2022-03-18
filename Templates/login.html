@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Static/Css/bootstrap-main/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Static/Css/styles.css?{% now " U " %}">
+    <title>Login page</title>
+</head>
+
+<body>
+
+    <section class="d-flex align-items-center" style="height: 100vh" ;>
+        <div class="login d-flex bg-light shadow-lg col-md-6  m-auto ">
+            <img src="../Static/Images/login-ban.jpg" alt="" height="420px" width="100%" class="rounded col-md-5 p-2 ">
+            <div class="col-md-7 px-2 d-flex justify-content-center align-items-baseline pt-5">
+                <form action="" method="post" class="w-75 pt-5 ">{% csrf_token %}
+                    <label for="uname" class="text-center fw-bold p-2">USERNAME</label>
+                    <input type="text" name="uname" id="uname" placeholder="Enter your Username " class="form-control " required>
+                    <label for="uname" class="text-center fw-bold p-2">PASSWORD</label>
+                    <input type="password" name="pass" id="uname" placeholder="Enter your Password" class="form-control " required>
+                    <label for="uname" class="text-center fw-bold p-2"></label>
+                    <input type="submit" value="login" class="form-control bg-success text-light" name="login">
+                    <p class="text-center mt-1">Dont have account <a href="/signup" class="text-primary w-bold">Register </a>Here</p>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Static/Css/bootstrap-main/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Static/Css/styles.css?{% now " U " %}">
+    <title>Signup</title>
+</head>
+
+<body>
+
+    <section class="d-flex align-items-center" style="height: 100vh" ;>
+        <div class="login d-flex bg-light shadow-lg col-md-6  m-auto ">
+            <img src="../Static/Images/login-ban.jpg" alt="" class="rounded img-fluid col-md-5 p-2">
+            <div class="col-md-7 px-2 d-flex justify-content-center align-items-baseline pb-5 ">
+                <form action="" method="post" class="w-75 pt-5 ">{% csrf_token %}
+                    <label for="uname" class="text-center fw-bold p-2">USERNAME <span class="text-danger">*</span></label>
+                    <input type="text" name="uname" id="uname" placeholder="Enter Username " class="form-control " required>
+                    <label for="uname" class="text-center fw-bold p-2">EMAIL <span class="text-danger">*</span></label>
+                    <input type="email" name="email" id="uname" placeholder="Enter Emial " class="form-control " required>
+                    <label for="password" class="text-center fw-bold p-2">PASSWORD <span class="text-danger">*</span></label>
+                    <input type="password" name="pass1" id="uname" placeholder="Enter Password" class="form-control " required>
+                    <label for="password" class="text-center fw-bold p-2">CONFIRM PASSWORD <span class="text-danger">*</span></label>
+                    <input type="password" name="pass2" id="uname" placeholder="Confirm Password" class="form-control " required>
+                    <label for="submit" class="text-center fw-bold p-2"></label>
+                    <input type="submit" value="signup" class="form-control bg-success text-light" name="signup">
+                </form>
+
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

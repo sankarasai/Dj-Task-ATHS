@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%  static 'Css/bootstrap-main/css/bootstrap.min.css' %}?{% now " U " %}">
+    <link rel="stylesheet" href="{%  static 'Css/styles.css' %}?{% now " U " %}">
+    <title>Edit Ticket</title>
+</head>
+
+<body style="background-color: #ddd6d6 !important;">
+
+
+
+    <div class="col-md-12 d-flex  mt-5 justify-content-center">
+        <div class="col-md-5 mx-4 p-3 py-1 grey shadow">
+            <h3 class="text-center pb-2">Update your ticket here</h3>
+            <form action="" method="post">{% csrf_token %}
+                <label for="ticket-name">Ticket-Name</label>
+                <p>{{form.ticket_name}}</p>
+                <label for="ticket-name">Ticket-Description</label>
+                <p>{{form.ticket_description}}</p>
+                <!-- <p class="d-none">{{form.created_by}}</p> -->
+
+                <p>{{form.status}}</p>
+
+                <div class="d-flex justify-content-center">
+                    <input type="submit" value="Submit" name="form" class="btn btn-success flex-right">
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
