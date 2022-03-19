@@ -31,7 +31,7 @@ def signup(request):
         email=request.POST.get("email")
         if passwd1==passwd2:
             if User.objects.filter(username=uname).exists():
-                return HttpResponseRedirect("username already exists ,try with login")
+                return HttpResponse("username already exists ,try with login")
             else:
                 user=User.objects.create_user(username=uname,password=passwd1,email=email)
                 user.save()
